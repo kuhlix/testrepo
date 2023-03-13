@@ -4,7 +4,7 @@ jobs:
   Explore-GitHub-Actions:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
@@ -26,4 +26,6 @@ jobs:
         run: cc -o hello hello.c
       - name: Test
         run: ./hello
+      - run: man pthread_mutex_unlock | cat
+      - run: man pthread_mutexattr_init | cat
       - run: echo "This job's status is ${{ job.status }}."
